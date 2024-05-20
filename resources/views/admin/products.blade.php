@@ -48,15 +48,15 @@
                     <td>{{ $product->category }}</td>
                     <td>{{ $product->sub_category }}</td>
                     <td class="text-right">
-                        <a class="btn btn-primary btn-sm" href="{{ route('products.show', $product->id) }}">
+                        <a class="btn btn-primary btn-sm" href="{{ route('admin.products.show', $product->id) }}">
                             <i class="fas fa-folder"></i>
                             View
                         </a>
-                        <a class="btn btn-info btn-sm" href="{{ route('products.edit', $product->id) }}">
+                        <a class="btn btn-info btn-sm" href="{{ route('admin.products.edit', $product->id) }}">
                             <i class="fas fa-pencil-alt"></i>
                             Edit
                         </a>
-                        <form action="{{ route('products.destroy', $product->id) }}" method="POST" style="display:inline;">
+                        <form action="{{ route('admin.products.destroy', $product->id) }}" method="POST" style="display:inline;">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger btn-sm">

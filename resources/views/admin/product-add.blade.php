@@ -33,11 +33,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="inputPrice">Price</label>
-                                    <input type="text" id="inputPrice" name="price" class="form-control" required>
+                                    <input type="number" id="inputPrice" name="price" class="form-control" required step="0.01">
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputRating">Rating</label>
-                                    <input type="text" id="inputRating" name="rating" class="form-control" required>
+                                    <label for="inputRating">Rating(from 1 to 5)</label>
+                                    <input type="number" id="inputRating" name="rating" class="form-control" required step="0.1">
                                 </div>
                                 <div class="form-group">
                                     <label for="inputSize">Size</label>

@@ -47,3 +47,19 @@ Route::prefix('admin')->group(function () {
         'update' => 'admin.products.update',
         'destroy' => 'admin.products.destroy',
     ]);
+
+    Route::get('/cart', function () {
+        return view('cart');
+    });
+    Route::get('/contact', function () {
+        return view('contact');
+    });
+    Route::get('/shop', function () {
+        return view('shop');
+    });
+    Route::get('/checkout', function () {
+        return view('checkout');
+    });
+    Route::get('/detail', function () {
+        return view('detail');
+    });
