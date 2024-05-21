@@ -24,7 +24,7 @@
                         </div>
                     </div>
                         {{-- main content --}}
-                        <form action="{{ route('admin.products.store') }}" method="POST">
+                        <form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">
@@ -32,11 +32,18 @@
                                     <input type="text" id="inputName" name="name" class="form-control" required>
                                 </div>
                                 <div class="form-group">
+                                    <label for="inputImage">Product Image</label>
+                                    <div class="custom-file">
+                                        <input type="file" name="product_image" class="custom-file-input" id="inputImage" required>
+                                        <label class="custom-file-label" for="inputImage">Choose file</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
                                     <label for="inputPrice">Price</label>
                                     <input type="number" id="inputPrice" name="price" class="form-control" required step="0.01">
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputRating">Rating(from 1 to 5)</label>
+                                    <label for="inputRating">Rating (from 1 to 5)</label>
                                     <input type="number" id="inputRating" name="rating" class="form-control" required step="0.1">
                                 </div>
                                 <div class="form-group">
@@ -70,7 +77,7 @@
                             </div>
                             <div class="card-footer">
                                 <a href="#" class="btn btn-secondary">Cancel</a>
-                                <input type="submit" value="Create new Product" class="btn btn-success float-right">
+                                <button type="submit" class="btn btn-success float-right">Create new Product</button>
                             </div>
                         </form>
                         

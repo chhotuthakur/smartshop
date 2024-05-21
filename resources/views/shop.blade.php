@@ -178,20 +178,30 @@
                                     <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-search"></i></a>
                                 </div>
                             </div>
-                            <div class="text-center py-4">
-                                <a class="h6 text-decoration-none text-truncate" href="">Product Name Goes Here</a>
-                                <div class="d-flex align-items-center justify-content-center mt-2">
-                                    <h5>$123.00</h5><h6 class="text-muted ml-2"><del>$123.00</del></h6>
-                                </div>
-                                <div class="d-flex align-items-center justify-content-center mb-1">
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small>(99)</small>
+                            @foreach ($products as $product)
+                            <div class="col-md-4">
+                                <div class="text-center py-4">
+                                    <a class="h6 text-decoration-none text-truncate" href="">{{ $product->name }}</a>
+                                    <div class="d-flex align-items-center justify-content-center mt-2">
+                                        <h5>${{ number_format($product->price, 2) }}</h5>
+                                        <!-- Assuming there's a discount price, adjust as needed -->
+                                        @if ($product->discount_price)
+                                            <h6 class="text-muted ml-2"><del>${{ number_format($product->discount_price, 2) }}</del></h6>
+                                        @endif
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-center mb-1">
+                                        @for ($i = 0; $i < 5; $i++)
+                                            @if ($i < $product->rating)
+                                                <small class="fa fa-star text-primary mr-1"></small>
+                                            @else
+                                                <small class="fa fa-star text-muted mr-1"></small>
+                                            @endif
+                                        @endfor
+                                        <small>({{ $product->rating }})</small>
+                                    </div>
                                 </div>
                             </div>
+                        @endforeach
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-6 pb-1">

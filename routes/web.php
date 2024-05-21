@@ -63,3 +63,5 @@ Route::prefix('admin')->group(function () {
     Route::get('/detail', function () {
         return view('detail');
     });
+
+    Route::get('/shop', [ProductController::class, 'shops'])->name('shop.shops');
